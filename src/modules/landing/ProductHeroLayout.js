@@ -11,7 +11,7 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
-      height: '90vh',
+      height: '91vh',
       minHeight: 500,
       maxHeight: 1300,
     },

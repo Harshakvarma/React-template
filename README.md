@@ -20,4 +20,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## TODO
 
+#### CSS styles
+> create signup
+> create dashboard
 > create landing correctly
+#### Add redux 
+#### Add connect to backend
