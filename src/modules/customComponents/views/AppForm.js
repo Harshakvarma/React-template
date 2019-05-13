@@ -25,7 +25,7 @@ function AppForm(props) {
     <div className={classes.root}>
       <LayoutBody margin marginBottom width="small">
         <Paper className={classes.paper}>{children}</Paper>
-      </LayoutBody>
+      </LayoutBody>AppForm
     </div>
   );
 }

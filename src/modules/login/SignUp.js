@@ -1,19 +1,20 @@
-import withRoot from './modules/withRoot';
+import withRoot from './../customComponents/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
 import PropTypes from 'prop-types';
 import compose from 'recompose/compose';
 import { withStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import { Field, Form, FormSpy } from 'react-final-form';
-import Typography from './modules/components/Typography';
-import AppFooter from './modules/views/AppFooter';
-import AppAppBar from './modules/views/AppAppBar';
-import AppForm from './modules/views/AppForm';
-import { email, required } from './modules/form/validation';
-import RFTextField from './modules/form/RFTextField';
-import FormButton from './modules/form/FormButton';
-import FormFeedback from './modules/form/FormFeedback';
+import Typography from './../customComponents/components/Typography';
+import AppFooter from './../customComponents/views/AppFooter';
+import AppAppBar from './../customComponents/views/AppAppBar';
+import AppForm from '../customComponents/views/AppForm';
+import { email, required } from './../customComponents/form/validation';
+import RFTextField from './../customComponents/form/RFTextField';
+import FormButton from './../customComponents/form/FormButton';
+import FormFeedback from './../customComponents/form/FormFeedback';
 
 const styles = theme => ({
   form: {
@@ -28,13 +29,13 @@ const styles = theme => ({
   },
 });
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
   state = {
     sent: false,
   };
 
   validate = values => {
-    const errors = required(['email', 'password'], values, this.props);
+    const errors = required(['firstName', 'lastName', 'email', 'password'], values, this.props);
 
     if (!errors.email) {
       const emailError = email(values.email, values, this.props);
@@ -58,12 +59,11 @@ class SignIn extends React.Component {
         <AppForm>
           <React.Fragment>
             <Typography variant="h3" gutterBottom marked="center" align="center">
-              Sign In
+              Sign Up
             </Typography>
             <Typography variant="body2" align="center">
-              {'Not a member yet? '}
-              <Link href="/premium-themes/onepirate/sign-up" align="center" underline="always">
-                Sign Up here
+              <Link href="/sign-in" underline="always">
+                Already have an account?
               </Link>
             </Typography>
           </React.Fragment>
@@ -74,9 +74,31 @@ class SignIn extends React.Component {
           >
             {({ handleSubmit, submitting }) => (
               <form onSubmit={handleSubmit} className={classes.form} noValidate>
+                <Grid container spacing={16}>
+                  <Grid item xs={12} sm={6}>
+                    <Field
+                      autoFocus
+                      component={RFTextField}
+                      autoComplete="fname"
+                      fullWidth
+                      label="First name"
+                      name="firstName"
+                      required
+                    />
+                  </Grid>
+                  <Grid item xs={12} sm={6}>
+                    <Field
+                      component={RFTextField}
+                      autoComplete="lname"
+                      fullWidth
+                      label="Last name"
+                      name="lastName"
+                      required
+                    />
+                  </Grid>
+                </Grid>
                 <Field
                   autoComplete="email"
-                  autoFocus
                   component={RFTextField}
                   disabled={submitting || sent}
                   fullWidth
@@ -84,11 +106,9 @@ class SignIn extends React.Component {
                   margin="normal"
                   name="email"
                   required
-                  size="large"
                 />
                 <Field
                   fullWidth
-                  size="large"
                   component={RFTextField}
                   disabled={submitting || sent}
                   required
@@ -110,20 +130,14 @@ class SignIn extends React.Component {
                 <FormButton
                   className={classes.button}
                   disabled={submitting || sent}
-                  size="large"
                   color="secondary"
                   fullWidth
                 >
-                  {submitting || sent ? 'In progress…' : 'Sign In'}
+                  {submitting || sent ? 'In progress…' : 'Sign Up'}
                 </FormButton>
               </form>
             )}
           </Form>
-          <Typography align="center">
-            <Link underline="always" href="/premium-themes/onepirate/forgot-password">
-              Forgot password?
-            </Link>
-          </Typography>
         </AppForm>
         <AppFooter />
       </React.Fragment>
@@ -131,11 +145,11 @@ class SignIn extends React.Component {
   }
 }
 
-SignIn.propTypes = {
+SignUp.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 export default compose(
   withRoot,
   withStyles(styles),
-)(SignIn);
+)(SignUp);

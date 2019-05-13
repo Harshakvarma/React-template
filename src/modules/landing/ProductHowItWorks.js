@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
-import LayoutBody from '../components/LayoutBody';
-import Button from '../components/Button';
-import Typography from '../components/Typography';
+import LayoutBody from './../customComponents/components/LayoutBody';
+import Button from '../customComponents/components/Button';
+import Typography from '../customComponents/components/Typography';
 
 const styles = theme => ({
   root: {
@@ -116,7 +116,7 @@ function ProductHowItWorks(props) {
           variant="contained"
           className={classes.button}
           component={linkProps => (
-            <Link {...linkProps} href="/premium-themes/onepirate/sign-up" variant="button" />
+            <Link {...linkProps} href="/sign-up" variant="button" />
           )}
         >
           Get started

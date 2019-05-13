@@ -9,7 +9,9 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 import Paperbase from './modules/dashboard/Paperbase';
 import Index from './modules/landing/Home';
 import Privacy from './modules/landing/Privacy';
-import SignUp from './modules/landing/SignUp';
+import ForgotPassword from './modules/login/ForgotPassword';
+import SignIn from './modules/login/SignIn';
+import SignUp from './modules/login/SignUp';
 
 
 const routing = (
@@ -19,6 +21,9 @@ const routing = (
         <Route exact path="/dashboard" component={Paperbase} />
         <Route path="/landing" component={Index} />
         <Route path="/privacy" component={Privacy} />
+
+        <Route path="/forgot-password" component={ForgotPassword} />
+        <Route path="/signin" component={SignIn} />
         <Route path="/signup" component={SignUp} />
       </div>
     </Router>

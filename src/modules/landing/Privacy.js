@@ -1,12 +1,12 @@
-import withRoot from './modules/withRoot';
+import withRoot from './../customComponents/withRoot';
 // --- Post bootstrap -----
 import React from 'react';
-import Markdown from './modules/components/Markdown';
-import Typography from './modules/components/Typography';
-import LayoutBody from './modules/components/LayoutBody';
-import AppAppBar from './modules/views/AppAppBar';
-import privacy from './modules/views/privacy.md';
-import AppFooter from './modules/views/AppFooter';
+import Markdown from './../customComponents/components/Markdown';
+import Typography from './../customComponents/components/Typography';
+import LayoutBody from './../customComponents/components/LayoutBody';
+import AppAppBar from './../customComponents/views/AppAppBar';
+import privacy from './privacy.md';
+import AppFooter from './../customComponents/views/AppFooter';
 
 function Privacy() {
   return (

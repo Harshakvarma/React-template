@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-import Button from '../components/Button';
-import Typography from '../components/Typography';
+import Button from '../customComponents/components/Button';
+import Typography from '../customComponents/components/Typography';
 import ProductHeroLayout from './ProductHeroLayout';
 
 const backgroundImage =
@@ -49,7 +49,7 @@ function ProductHero(props) {
         size="large"
         className={classes.button}
         component={linkProps => (
-          <Link {...linkProps} href="/premium-themes/onepirate/sign-up" variant="button" />
+          <Link {...linkProps} href="/sign-up" variant="button" />
         )}
       >
         Register
